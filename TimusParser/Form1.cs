@@ -23,6 +23,12 @@ namespace TimusParser
     public partial class Form1 : Form
     {
         int state = 3;
+        int index = 0;
+        int done = 0, prob = 1000;
+        HtmlDocument tdoc;
+        string bpath = "C:\\Users\\BRONUF\\Desktop\\" + "\\timus\\";
+        int subc = 0;
+        string JudgeID;
         public Form1()
         {
             InitializeComponent();
@@ -38,15 +44,7 @@ namespace TimusParser
             }
         }
         List<AppendClass> appensClass = new List<AppendClass>();
-        struct Submission
-        {
-            public string ID;
-            public string Dat;
-            public string Language;
-            public string Result;
-            public string Test;
-            public string Link;
-        }
+       
 
         Submission[] subs = new Submission[1000];
 
@@ -54,91 +52,17 @@ namespace TimusParser
         {
             webBrowser1.Navigate("https://acm.timus.ru/authedit.aspx");
         }
-        int done = 0, prob = 1000;
-        HtmlDocument tdoc;
-        int subc = 0;
-        string JudgeID;
+       
+        
 
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-
-            HtmlElementCollection els = null;
             HtmlDocument doc = null;
             switch (state)
             {
-
-                //case 0:
-                //    doc = webBrowser1.Document;
-                //    els = doc.GetElementsByTagName("input");
-                //    doc.GetElementById("JudgeID").SetAttribute("value", textBoxJUDGE.Text);
-                //    doc.GetElementById("Password").SetAttribute("value", textBoxPass.Text);
-                //    state = 1;
-
-                //    foreach (var el in els)
-                //    {
-                //        var ell = el as HtmlElement;
-                //        if (ell.GetAttribute("value").Equals("Login") || ell.GetAttribute("value").Equals("Войти"))
-                //        {
-                //            ell.InvokeMember("click");
-                //            break;
-                //        }
-                //    }
-                //    break;
-                //case 1:
-                //    doc = webBrowser1.Document;
-                //    els = doc.GetElementsByTagName("input");
-                //    foreach (HtmlElement el in els)
-                //    {
-                //        if (el.GetAttribute("value") == "Save" || el.GetAttribute("value") == "Сохранить")
-                //        {
-                //            state = 2;
-                //            //Label4.Text = "Status: Getting problems state...";
-                //            JudgeID = textBoxJUDGE.Text.Substring(0, textBoxJUDGE.Text.Length - 2);
-                //            postdata = Encoding.Default.GetBytes("Action=getsubmit&JudgeID=" + textBoxJUDGE + "&Password=" + textBoxPass);
-                //            for (int i = 1000; i <= 2500; i++)
-                //            {
-                //                status[i] = 1;
-                //            }
-                //            tried = 0;
-                //            total = 0;
-                //            webBrowser1.Navigate("http://acm.timus.ru/author.aspx?id=" + JudgeID);
-                //            return;
-                //        }
-                //    }
-                //    break;
-                //case 2:
-                //    doc = webBrowser1.Document;
-                //    els = doc.GetElementsByTagName("td");
-                //    foreach (HtmlElement el in els)
-                //    {
-                //        if (el.GetAttribute("className") == "accepted")
-                //        {
-                //            int num = int.Parse(el.FirstChild.InnerText);
-                //            status[num] = 2;
-                //            tried++;
-                //            total++;
-                //        }
-                //        else if (el.GetAttribute("className") == "tried")
-                //        {
-                //            int num = int.Parse(el.FirstChild.InnerText);
-                //            status[num] = 3;
-                //            tried++;
-                //            total++;
-                //        }
-                //        else if (el.GetAttribute("className") == "empty")
-                //        {
-                //            total++;
-                //        }
-                //    }
-                //    state = 3;
-                //    done = 0;
-                //    prob = 1000;
-                //    webBrowser1.Navigate("about:blank");
-                //    break;
                 case 3:
                     JudgeID = textBoxJUDGE.Text.Substring(0, textBoxJUDGE.Text.Length - 2);
                     webBrowser1.Navigate("http://acm.timus.ru/status.aspx?space=1&num=" + prob.ToString().Trim() + "&author=" + JudgeID + "&refresh=0&count=1000");
-                   // webBrowser1.Navigate("about:blank");
                     state = 4;
                     break;
                 case 4:
@@ -147,34 +71,6 @@ namespace TimusParser
                     work();
                     //System.Threading.Thread th = new System.Threading.Thread(work);
                     //th.Start();
-                    break;
-                case 6:
-                    doc = webBrowser1.Document;
-                    els = doc.GetElementsByTagName("input");
-                    doc.GetElementById("JudgeID").SetAttribute("value", textBoxJUDGE.Text);
-                    doc.GetElementById("Password").SetAttribute("value", textBoxPass.Text);
-                    foreach (var el in els)
-                    {
-                        var ell = el as HtmlElement;
-                        if (ell.GetAttribute("value").Equals("Продолжить"))
-                        {
-                            state = 7;
-
-                            ell.InvokeMember("click");
-                            //state = 7;
-                            break;
-                        }
-                    }
-                    break;
-                case 7:
-
-                    doc = webBrowser1.Document;
-                    string text = doc.Body.InnerText;
-                    string ext = System.IO.Path.GetExtension(webBrowser1.Url.AbsoluteUri);
-                    string file = $"{prob}{ext}";
-                    string bpath = "C:\\timus\\";
-                    bpath = System.IO.Path.Combine(bpath, file);
-                    System.IO.File.WriteAllText(bpath, text, Encoding.Default);
                     break;
                 case 8:
                     if (prob < Convert.ToInt32(textTaskCount.Text)+1)
@@ -189,12 +85,12 @@ namespace TimusParser
                     }
                     else
                     {
-                        MessageBox.Show("!");
+                        MessageBox.Show("Скачивание завершено");
                     }
-                    break
+                    break;
             }
         }
-        int index = 0;
+        
 
        
 
@@ -229,14 +125,6 @@ namespace TimusParser
 
             }
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-           
-        }
-
-        
-       
-
         void work()
         {
             appensClass = new List<AppendClass>();
@@ -277,7 +165,7 @@ namespace TimusParser
                     subc++;
                 }
             }
-            string bpath = "C:\\Users\\BRONUF\\Desktop\\" + "\\timus\\";
+           
             try
             {
                 Directory.Delete(bpath, true);

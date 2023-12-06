@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.labelJudgeId = new System.Windows.Forms.Label();
             this.labelPass = new System.Windows.Forms.Label();
@@ -36,6 +37,9 @@
             this.buttonStart = new System.Windows.Forms.Button();
             this.textTaskCount = new System.Windows.Forms.TextBox();
             this.labelTaskCount = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // webBrowser1
@@ -50,40 +54,45 @@
             // labelJudgeId
             // 
             this.labelJudgeId.AutoSize = true;
-            this.labelJudgeId.Location = new System.Drawing.Point(31, 33);
+            this.labelJudgeId.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelJudgeId.Location = new System.Drawing.Point(149, 68);
             this.labelJudgeId.Name = "labelJudgeId";
-            this.labelJudgeId.Size = new System.Drawing.Size(63, 13);
+            this.labelJudgeId.Size = new System.Drawing.Size(84, 19);
             this.labelJudgeId.TabIndex = 1;
             this.labelJudgeId.Text = "JUDGE_ID:";
             // 
             // labelPass
             // 
             this.labelPass.AutoSize = true;
-            this.labelPass.Location = new System.Drawing.Point(33, 68);
+            this.labelPass.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPass.Location = new System.Drawing.Point(171, 106);
             this.labelPass.Name = "labelPass";
-            this.labelPass.Size = new System.Drawing.Size(48, 13);
+            this.labelPass.Size = new System.Drawing.Size(61, 19);
             this.labelPass.TabIndex = 2;
             this.labelPass.Text = "Пароль:";
             // 
             // textBoxJUDGE
             // 
-            this.textBoxJUDGE.Location = new System.Drawing.Point(100, 30);
+            this.textBoxJUDGE.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxJUDGE.Location = new System.Drawing.Point(239, 65);
             this.textBoxJUDGE.Name = "textBoxJUDGE";
-            this.textBoxJUDGE.Size = new System.Drawing.Size(89, 20);
+            this.textBoxJUDGE.Size = new System.Drawing.Size(119, 26);
             this.textBoxJUDGE.TabIndex = 3;
             // 
             // textBoxPass
             // 
-            this.textBoxPass.Location = new System.Drawing.Point(100, 65);
+            this.textBoxPass.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxPass.Location = new System.Drawing.Point(239, 103);
             this.textBoxPass.Name = "textBoxPass";
-            this.textBoxPass.Size = new System.Drawing.Size(89, 20);
+            this.textBoxPass.Size = new System.Drawing.Size(119, 26);
             this.textBoxPass.TabIndex = 4;
             // 
             // buttonStart
             // 
-            this.buttonStart.Location = new System.Drawing.Point(435, 65);
+            this.buttonStart.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonStart.Location = new System.Drawing.Point(574, 106);
             this.buttonStart.Name = "buttonStart";
-            this.buttonStart.Size = new System.Drawing.Size(96, 24);
+            this.buttonStart.Size = new System.Drawing.Size(86, 32);
             this.buttonStart.TabIndex = 5;
             this.buttonStart.Text = "Lets\' Go";
             this.buttonStart.UseVisualStyleBackColor = true;
@@ -91,26 +100,53 @@
             // 
             // textTaskCount
             // 
-            this.textTaskCount.Location = new System.Drawing.Point(395, 30);
+            this.textTaskCount.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textTaskCount.Location = new System.Drawing.Point(585, 65);
             this.textTaskCount.Name = "textTaskCount";
-            this.textTaskCount.Size = new System.Drawing.Size(136, 20);
+            this.textTaskCount.Size = new System.Drawing.Size(75, 26);
             this.textTaskCount.TabIndex = 6;
             this.textTaskCount.Text = "2173";
+            this.textTaskCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelTaskCount
             // 
             this.labelTaskCount.AutoSize = true;
-            this.labelTaskCount.Location = new System.Drawing.Point(233, 33);
+            this.labelTaskCount.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelTaskCount.Location = new System.Drawing.Point(378, 68);
             this.labelTaskCount.Name = "labelTaskCount";
-            this.labelTaskCount.Size = new System.Drawing.Size(156, 13);
+            this.labelTaskCount.Size = new System.Drawing.Size(201, 19);
             this.labelTaskCount.TabIndex = 7;
             this.labelTaskCount.Text = "Количество задач в системе:";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(111, 147);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.Blue;
+            this.label1.Location = new System.Drawing.Point(120, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(540, 54);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Добро пожаловать в Timus Solutions Saver,\r\nпрограмма автоматической загрузки реше" +
+    "ний";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(557, 206);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(671, 202);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelTaskCount);
             this.Controls.Add(this.textTaskCount);
             this.Controls.Add(this.buttonStart);
@@ -123,8 +159,8 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "Timus Solutions Saver";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,6 +176,8 @@
         private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.TextBox textTaskCount;
         private System.Windows.Forms.Label labelTaskCount;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
